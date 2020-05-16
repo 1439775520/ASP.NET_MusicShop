@@ -1,0 +1,79 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminSite.master.cs" Inherits="WebApplication1.Admin.AdminSite" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="../Assets/css/animate.min.css" rel="stylesheet" />
+    <link href="../Assets/css/font-awesome.css" rel="stylesheet" />
+    <link href="../Assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../Assets/css/grids-responsive-min.css" rel="stylesheet" />
+    <link href="../Assets/css/input.css" rel="stylesheet" />
+    <link href="../Assets/css/login.css" rel="stylesheet" />
+    <link href="../Assets/css/main.css" rel="stylesheet" />
+    <link href="../Assets/css/pure-extends.css" rel="stylesheet" />
+    <link href="../Assets/css/pure-min.css" rel="stylesheet" />
+    <link href="../Assets/css/shop.css" rel="stylesheet" />
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="m-header">
+            <div class=" home-menu pure-menu pure-menu-horizontal">
+                <a href="#" class="pure-menu-heading pure-menu-link">在线音乐商店-后台管理</a>
+                <ul class="pure-menu-list">
+                    <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+                        <a href="#" class="pure-menu-link">
+                            <i class="fa fa-user-circle"></i>
+                            <asp:Label ID="lbUser" runat="server" Text="管理员"></asp:Label>
+                        </a>
+                        <ul class="pure-menu-children">
+                            <li class="pure-menu-item pure-menu-allow-hover">
+                                <asp:LinkButton ID="lbExit" CssClass="pure-button pure-button-primary" runat="server">注销</asp:LinkButton>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <div id="m-body" class="pure-g">
+            <div id="nav" class=" pure-u-1-4">
+                <div id="nav-item" class="pure-menu custom-restricted-width">
+                     
+
+                    <ul class="pure-menu-list">
+                        <li class="pure-menu-item"><a href="MusicManager.aspx" class="pure-menu-link">音乐管理</a></li>
+                        <li class="pure-menu-item"><a href="MusicType.aspx" class="pure-menu-link">类型管理</a></li>
+                        <li class="pure-menu-item"><a href="OrdersManager.aspx" class="pure-menu-link">订单管理</a></li>
+                        <li class="pure-menu-item"><a href="RoleManager.aspx" class="pure-menu-link">角色管理</a></li>
+                        <li class="pure-menu-item"><a href="UserManager.aspx" class="pure-menu-link">用户管理</a></li>
+                        </ul>
+                </div>
+            </div>
+            <div id="main" class=" pure-u-3-4">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+         <script src="../Assets/js/jquery-3.4.1.min.js"></script> 
+        <script>
+            $(function () {
+                $("#nav-item a").each(function () {
+                    var index = window.location.href.indexOf($(this).attr("href"));
+                    if (index != -1) {
+                        $(this).addClass("pure-menu-selected");
+                    } else {
+                        $(this).removeClass("pure-menu-selected");
+                    }
+                })
+            })
+        </script>
+    </form>
+   
+</body>
+</html>
